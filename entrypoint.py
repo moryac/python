@@ -6,7 +6,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Choose model and arguments')
 parser.add_argument('-m', '--model', choices=settings.MODEL, default='RANDOM', type=str, help="Choose the model for the prediction")
-parser.add_argument('-v', '--values', default=settings.PREDICTION.VALUES, type=str,  help="Enter values for prediction with spaces, number by number")
+parser.add_argument('-v', '--values', default=settings.PREDICTION.VALUES, type=str, nargs='+', help="Enter values for prediction with spaces, number by number")
 args = parser.parse_args()
 
 
