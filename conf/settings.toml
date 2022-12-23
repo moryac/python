@@ -1,0 +1,9 @@
+[DATA]
+DATASET = "https://raw.githubusercontent.com/5x12/ml-cookbook/master/supplements/data/heart.csv"
+
+[MODEL]
+REG = "model/conf/logistic_regression.pkl"
+RANDOM = "model/conf/random_forest.pkl"
+
+[PREDICTION]
+VALUES = [[59, 1, 0, 101, 234, 0, 1, 143, 0, 3.4, 0, 0, 0]]
