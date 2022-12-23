@@ -1,6 +1,6 @@
 from connector.pg_connector import get_data
 from conf.conf import logging
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
 import pickle
@@ -29,7 +29,10 @@ def train_random_forest(X_train: pd.DataFrame, y_train: pd.DataFrame) -> RandomF
     logging.info("Training the model")
     # Train the model
     clf.fit(X_train, y_train)
-
+    params = {'n_estimators':[10]}
+    searcher = GridSearchCV(clf, params)
+    searcher.fit(X_train, y_train)
+    clf.set_params(**searcher.best_params_)
     save_model(dir=settings.MODEL.RANDOM, model=clf)
 
     return clf

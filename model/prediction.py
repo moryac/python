@@ -21,6 +21,6 @@ def init_model(model_name: str) -> None:
     logging.info(f'Accuracy is {clf.score(X_test, y_test)}')
     logging.info(f'Prediction is {predict(X_test, settings.MODEL[model_name])}')
 
-def predict(values, path_to_model):
+def predict(values, path_to_model) -> list:
     clf = load_model(path_to_model)
     return clf.predict(values)
